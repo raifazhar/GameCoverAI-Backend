@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 
 app = Flask(__name__)
-model = tf.keras.models.load_model("game_cover.keras")
+model = tf.keras.models.load_model("game_cover_model.keras")
 
 
 def preprocess_image(image):
