@@ -1,0 +1,36 @@
+# Ignore datasets and image folders
+/dataset/
+/faceimgs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints
+*.pyo
+*.pyd
+*.so
+
+# TensorFlow/Model files
+*.h5
+*.keras
+*.pb
+saved_model/
+models/
+logs/
+checkpoint/
+event*.*
+
+# Jupyter Notebook output
+.ipynb_checkpoints/
+
+# VSCode or other IDE settings
+.vscode/
+.idea/
+
+# Environment
+.env
+.venv/
+env/
+venv/
+*.egg-info/
+pip-wheel-metadata/
