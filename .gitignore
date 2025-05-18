@@ -12,10 +12,8 @@ __pycache__/
 
 # TensorFlow/Model files
 *.h5
-*.keras
 *.pb
 saved_model/
-models/
 logs/
 checkpoint/
 event*.*
