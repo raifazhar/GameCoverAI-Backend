@@ -3,8 +3,10 @@ from flask import Flask, request, jsonify
 import tensorflow as tf
 from PIL import Image
 import numpy as np
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, origins=["https://raifazhar.github.io"])  # ⬅️ Allow only your frontend
 model = None  # Lazy loading
 
 
