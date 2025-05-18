@@ -17,7 +17,7 @@ def load_model():
 
 
 def preprocess_image(image):
-    image = image.resize((224, 224))
+    image = image.resize((64, 64))
     image = np.array(image) / 255.0
     image = np.expand_dims(image, axis=0)
     return image
