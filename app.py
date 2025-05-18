@@ -38,15 +38,20 @@ def predict():
     file = request.files["file"]
     try:
         img = Image.open(file.stream)
+        img = img.convert("RGB")  # force RGB
+        processed_img = preprocess_image(img)
+        print("Processed image shape:", processed_img.shape)
     except Exception as e:
-        print("Image open failed:", e)
+        print("Image processing failed:", e)
         return jsonify({"error": "Invalid image"}), 400
 
-    processed_img = preprocess_image(img)
-    prediction = model.predict(processed_img)[0]
-    print("Prediction result:", prediction)
-
-    return jsonify({"prediction": prediction.tolist()})
+    try:
+        prediction = model.predict(processed_img)[0]
+        print("Prediction result:", prediction)
+        return jsonify({"prediction": prediction.tolist()})
+    except Exception as e:
+        print("Prediction failed:", e)
+        return jsonify({"error": "Prediction failed", "details": str(e)}), 500
 
 
 if __name__ == "__main__":
